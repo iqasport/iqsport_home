@@ -1,13 +1,15 @@
 import React from 'react'
 import Carousel from 'nuka-carousel'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import WorldMap from '../components/WorldMap'
 
-const homeImages = ['../img/products-grid1.jpg', '../img/products-grid2.jpg', '../img/products-grid3.jpg']
 const iqaImages = new Array(10).fill(0).map((_) => Math.random() * (100 - 1) + 1)
 
-const Index = () => {
+const Index = ({ data }) => {
+  const homeImages = data.allWordpressWpMedia && data.allWordpressWpMedia.edges.map(edge => edge.node)
+
   const renderHomeImage = () => (
     <Carousel
       autoplay
@@ -20,7 +22,7 @@ const Index = () => {
     >
       {
         homeImages.map((image) => (
-          <div key={image} style={{ backgroundImage: `url(${image})`}} className="home-image" />
+          <div key={image.id} style={{ backgroundImage: `url(${image.link})`}} className="home-image" />
         ))
       }
     </Carousel>
@@ -60,10 +62,12 @@ const Index = () => {
               <p>Main Content</p>
             </div>
           </div>
-          <div className="tile is-6 is-vertical is-parent">
+          <div className="tile is-parent">
             <div className="tile is-child box is-radiusless has-background-grey-lighter">
               <p>Secondary Content</p>
             </div>
+          </div>
+          <div className="tile is-parent">
             <div className="tile is-child box is-radiusless has-background-grey-lighter">
               <p>Tertiary Content</p>
             </div>
@@ -87,3 +91,20 @@ const Index = () => {
 }
 
 export default Index
+export const homePageData = graphql`
+query HomePage {
+  allWordpressWpMedia(filter: { mime_type: { eq: "image/jpeg" }, caption: { eq: "<p>home</p>\n" } }, limit: 3) {
+    edges {
+      node {
+        id
+        slug
+        date
+        link
+        alt_text
+        caption
+        type
+        mime_type
+      }
+    }
+  }
+}`

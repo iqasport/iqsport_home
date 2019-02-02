@@ -6,7 +6,7 @@ import './all.sass'
 
 const Layout = ({ children }) => (
   <div>
-    <Helmet title="International Quidditch Association" />
+    <Helmet className="has-navbar-fixed-top" title="International Quidditch Association" />
     <Navbar />
     <div className="main-container">{children}</div>
     <footer className="footer">

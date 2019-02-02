@@ -7,7 +7,7 @@ import {
 } from 'react-simple-maps'
 
 const mapPath = 'https://unpkg.com/world-atlas@1.1.4/world/110m.json'
-const ngbNames = ['Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Catalonia', 'Czech Republic', 'France', 'Germany', 'Ireland', 'Italy', 'Mexico', 'Netherlands', 'Norway', 'Peru', 'Poland', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Uganda', 'United Kingdom', 'United States', 'Chile', 'Denmark', 'Iceland', 'New Zealand','Hong Kong', 'Republic of Korea', 'Hungary', 'India', 'Indonesia', 'Israel', 'Japan', 'Pakistan', 'Portugal', 'Romania', 'Serbia']
+// const ngbNames = ['Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Catalonia', 'Czech Republic', 'France', 'Germany', 'Ireland', 'Italy', 'Mexico', 'Netherlands', 'Norway', 'Peru', 'Poland', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Uganda', 'United Kingdom', 'United States', 'Chile', 'Denmark', 'Iceland', 'New Zealand','Hong Kong', 'Republic of Korea', 'Hungary', 'India', 'Indonesia', 'Israel', 'Japan', 'Pakistan', 'Portugal', 'Romania', 'Serbia']
 
 const renderGeography = (projection) => (geography, index) => (
   <Geography

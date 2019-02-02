@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import logo from '../img/logo.svg'
 import { uniqueId } from 'lodash'
+import autoBind from 'react-autobind'
 
-const navConfig = [
+import logo from '../img/logo.svg'
+
+const NAV_CONFIG = [
   {
     title: 'About',
     slug: '/about',
@@ -124,49 +126,83 @@ const navConfig = [
   }
 ]
 
-const Navbar = () => {
-  const renderNavLink = ({ slug, title }) => (
-    <Link
-      className="navbar-item"
-      to={slug}
-      key={`${uniqueId(`${slug}_`)}`}
-    >
+const uniqueSlug = (slug) => uniqueId(`${slug}_`)
+
+const renderNavLink = ({ slug, title }) => (
+  <Link
+    className="navbar-item"
+    to={slug}
+    key={uniqueSlug(slug)}
+  >
+    {title}
+  </Link>
+)
+
+const renderNavDropdown = ({ slug, title, dropdownItems }) => (
+  <div key={slug} className="navbar-item has-dropdown is-hoverable">
+    <Link className="navbar-link is-arrowless" to={slug} key={uniqueSlug(slug)}>
       {title}
     </Link>
-  )
-
-  const renderNavDropdown = ({ slug, title, dropdownItems }) => (
-    <div key={slug} className="navbar-item has-dropdown is-hoverable">
-      <Link className="navbar-link is-arrowless" to={slug} key={`${uniqueId(`${slug}_`)}`}>
-        {title}
-      </Link>
-      <div className="navbar-dropdown is-right">
-        {dropdownItems.map(renderNavLink)}
-      </div>
+    <div className="navbar-dropdown is-right">
+      {dropdownItems.map(renderNavLink)}
     </div>
-  )
+  </div>
+)
 
-  const renderNavConfig = (config) => {
-    if (config.dropdownItems) return renderNavDropdown(config)
-    return renderNavLink(config)
+const renderNavConfig = (config) => {
+  if (config.dropdownItems) return renderNavDropdown(config)
+  return renderNavLink(config)
+}
+
+class Navbar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isMenuActive: false
+    }
+
+    autoBind(this)
   }
 
-  return (
-    <nav className="navbar">
-      <div className="container">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item">
-            <figure className="image">
-              <img src={logo} alt="International Quidditch Association" style={{ width: '88px' }} />
-            </figure>
-          </Link>
+  handleBurgerClick () {
+    this.setState(prevState => ({ isMenuActive: !prevState.isMenuActive }))
+  }
+
+  render() {
+    const { isMenuActive } = this.state
+    const activeClassName = isMenuActive ? 'is-active' : ''
+
+    return (
+      <nav className="navbar is-fixed-top">
+        <div className="container">
+          <div className="navbar-brand">
+            <Link to="/" className="navbar-item">
+              <figure className="image">
+                <img src={logo} alt="International Quidditch Association" style={{ width: '88px' }} />
+              </figure>
+            </Link>
+  
+            <button
+              type="button"
+              className={`navbar-burger burger ${activeClassName}`}
+              aria-label="menu"
+              aria-expanded="false"
+              onClick={this.handleBurgerClick}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
+          </div>
+          <div className={`navbar-menu ${activeClassName}`}>
+            <div className="navbar-end">
+              {NAV_CONFIG.map(renderNavConfig)}
+            </div>
+          </div>
         </div>
-        <div className="navbar-end">
-          {navConfig.map(renderNavConfig)}
-        </div>
-      </div>
-    </nav>
-  )
+      </nav>
+    )
+  }
 }
 
 export default Navbar
