@@ -1,87 +1,103 @@
 import React from 'react'
-import Carousel from 'nuka-carousel'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faTwitter, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 import Layout from '../components/Layout'
 import WorldMap from '../components/WorldMap'
+import VolunteerCarousel from '../components/VolunteerCarousel'
+import LatestNews from '../components/LatestNews'
 
-const iqaImages = new Array(10).fill(0).map((_) => Math.random() * (100 - 1) + 1)
+const quickLinksConfig = [
+  { slug: '/rules', label: 'Rulebook' },
+  { slug: '/guides', label: 'Guidebooks' },
+  { slug: '/contact', label: 'Contact Us' },
+  { slug: '/volunteer', label: 'Volunteer With Us' }
+]
+
+const socialLinks = [
+  { link: 'https://www.facebook.com/InternationalQuidditchAssociation/', icon: faFacebook },
+  { link: 'https://twitter.com/IQAsport', icon: faTwitter },
+  { link: 'https://www.youtube.com/channel/UC-oBgQgyuFRkvYEgG1unTUw/videos', icon: faYoutube },
+  { link: 'https://www.instagram.com/iqaquidditch/', icon: faInstagram },
+]
 
 const Index = ({ data }) => {
   const homeImages = data.allWordpressWpMedia && data.allWordpressWpMedia.edges.map(edge => edge.node)
 
-  const renderHomeImage = () => (
-    <Carousel
-      autoplay
-      autoplayInterval={10000}
-      speed={3000}
-      withoutControls
-      wrapAround
-      transitionMode="fade"
-      heightMode="max"
-    >
-      {
-        homeImages.map((image) => (
-          <div key={image.id} style={{ backgroundImage: `url(${image.link})`}} className="home-image" />
-        ))
-      }
-    </Carousel>
-  )
-
-  const renderMeetIQA = () => (
-    <div className="container">
-      <Carousel
-        autoplay
-        wrapAround
-        autoplayInterval={3000}
-        cellSpacing={125}
-        slidesToShow={4}
-        slideWidth="200px"
-        transitionMode="scroll"
-      >
-        {iqaImages.map((image) => (
-          <div key={image} className="iqa-image">{image}</div>
-        ))}
-      </Carousel>
-    </div>
-  )
+  const renderHomeImage = () => {
+    if (!homeImages) return null
+    return <div key={homeImages[0].id} style={{ backgroundImage: `url(${homeImages[0].link})`}} className="home-image" />
+  }
 
   return (
     <Layout>
       <section className="section section--gradient" style={{ padding: '0' }}>
         <div className="home-image-container">
-          <div className="home-image-mask"><h1>International Quidditch Association</h1></div>
           {renderHomeImage()}
+          <div className="home-image-mask">
+            <h1>International Quidditch Association</h1>
+            <Link className="button is-dark is-large is-fullwidth is-outlined" to="/what-is-quidditch">
+              {"Let's Play!"}
+            </Link>
+          </div>
         </div>
       </section>
-      <section className="section section-gradient" style={{ backgroundColor: 'rgb(105,172,223)' }}>
-        <h2 className="title is-2">Recent News</h2>
+      <div className="container">
         <div className="tile is-ancestor">
-          <div className="tile is-parent">
-            <div className="tile is-child box is-radiusless has-background-grey-lighter">
-              <p>Main Content</p>
+          <div className="tile is-vertical is-8">
+            <div className="tile is-parent">
+              <section className="section section-gradient">
+                <h2 className="title is-2 home-section-header">Latest News</h2>
+                <LatestNews />
+              </section>
             </div>
           </div>
-          <div className="tile is-parent">
-            <div className="tile is-child box is-radiusless has-background-grey-lighter">
-              <p>Secondary Content</p>
+          <div className="tile is-vertical is-4">
+            <div className="tile is-parent">
+              <section className="section section-gradient">
+                <div className="tile is-child">
+                  <h3 className="title is-3 home-section-header">Meet The IQA</h3>
+                  <VolunteerCarousel />
+                </div>
+              </section>
             </div>
-          </div>
-          <div className="tile is-parent">
-            <div className="tile is-child box is-radiusless has-background-grey-lighter">
-              <p>Tertiary Content</p>
+            <div className="tile is-parent">
+              <section className="section section-gradient">
+                <div className="tile is-child">
+                  <h3 className="title is-3 home-section-header">Quick Links</h3>
+                  <div>
+                    <ul>
+                      {quickLinksConfig.map((link) => (
+                        <li key={link.slug}><Link to={link.slug}>{link.label}</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div className="tile is-parent">
+              <section className="section section-gradient">
+                <div className="tile is-child">
+                  <h3 className="title is-3 home-section-header">Follow Us</h3>
+                  <div>
+                    <ul className="social-links">
+                      {socialLinks.map((link) => (
+                        <li key={link.link}>
+                          <a href={link.link} target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={link.icon} size="2x" />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
-      </section>
-      <section className="section section-gradient has-background-white">
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <h2 className="title is-2 is-pulled-right" style={{ width: '100%', textAlign: 'right' }}>Meet the IQA</h2>
-          {renderMeetIQA()}
-        </div>
-      </section>
+      </div>
       <section className="section section-gradient" style={{ backgroundColor: 'rgb(105,172,223)' }}>
-        <h2 className="title is-2">Quidditch Around the World</h2>
         <div className="container">
           <WorldMap />
         </div>

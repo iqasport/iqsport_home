@@ -8,6 +8,7 @@ export const PageTemplate = ({ title, content, media }) => (
     {media &&
       (
         <div
+          className="page-featured-image"
           style={{
             backgroundImage: `url(${media.localFile.childImageSharp.fluid.src})`
           }}

@@ -11,8 +11,7 @@ $navbar-height: 5rem
 $navbar-box-shadow-color: rgb(0,0,0)
 $navbar-box-shadow-size: 10px 10px 10px 10px
 $navbar-background-color: $white
-
-$body-background-color: $white-ter
+$body-background-color: $white
 $footer-background-color: $black-ter
 
 .content .taglist
@@ -55,40 +54,80 @@ body
 
 .main-container
   height: 100%
-  padding-top: 4.7%
+  padding-top: 5rem;
 
 .home-image-container
-  height: 50vh
+  height: 70vh
+  display: flex
 
 .home-image-mask
-  width: 100%
-  height: 50vh
-  z-index: 9
-  position: absolute
-  background: -moz-linear-gradient(-35deg, rgba(255,255,255,0) 44%, rgba(255,255,255,1) 64%)
-  background: -webkit-linear-gradient(-35deg, rgba(255,255,255,0) 44%,rgba(255,255,255,1) 64%)
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0) 44%, white 64%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 )
+  flex: 1
+  text-align: center
+  background-color: $heaven-blue
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 20px
 
 .home-image-mask > h1
-  position: absolute
-  z-index: 10
-  right: 0
-  bottom: 0
-  font-size: 54px
-  width: 300px
-  text-align: center
-  margin-right: 10px
+  font-size: 60px
+  flex: 1
 
 .home-image
-  height: 50vh
   background-size: cover
   background-position: center
   background-repeat: no-repeat
+  flex: 2
+
+.volunteer-carousel
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
 
 .iqa-image
   height: 250px
   width: 200px
   border: 1px solid black
+
+.iqa-image > img
+  height: 228px;
+  object-fit: cover;
+
+.home-section-header
+  color: $heaven-blue !important
+
+.news-container
+  display: flex !important
+  margin: 20px 0
+
+.news-image
+  flex: 1
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+.news-content
+  flex: 2
+  display: flex
+  flex-direction: column
+  background-color: $white
+  padding: 10px 15px
+
+.new-content + h3, span, a
+  margin: 10px 0
+
+.social-links
+  display: flex
+  width: 200px
+
+.social-links > li
+  flex: 1
+
+.page-featured-image
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 @import "~bulma"
