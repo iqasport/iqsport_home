@@ -73,7 +73,6 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const postTemplate = path.resolve(`./src/templates/post.js`)
-      const blogTemplate = path.resolve(`./src/templates/blog.js`)
 
       // In production builds, filter for only published posts.
       const allPosts = result.data.allWordpressPost.edges
@@ -100,7 +99,7 @@ exports.createPages = ({ actions, graphql }) => {
         items: posts,
         itemsPerPage: 10,
         pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/` : `/page`),
-        component: blogTemplate,
+        component: postTemplate,
       })
     })
     .then(() => {
