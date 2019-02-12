@@ -97,7 +97,7 @@ const Index = ({ data }) => {
           </div>
         </div>
       </div>
-      <section className="section section-gradient" style={{ backgroundColor: 'rgb(105,172,223)' }}>
+      <section className="section section-gradient" style={{ backgroundColor: 'rgb(114,186,107)' }}>
         <div className="container">
           <WorldMap />
         </div>

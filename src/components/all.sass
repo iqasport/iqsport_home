@@ -1,12 +1,12 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-$heaven-blue: rgb(105,172,223)
-$heaven-blue-invert: rgb(0,0,0)
+$grass-green: rgb(114,186,107)
+$grass-green-invert: rgb(0,0,0)
 $background-white: rgb(244, 239, 239)
 
-$primary: $heaven-blue
-$primary-invert: $heaven-blue-invert
+$primary: $grass-green
+$primary-invert: $grass-green-invert
 $navbar-height: 5rem
 $navbar-box-shadow-color: rgb(0,0,0)
 $navbar-box-shadow-size: 10px 10px 10px 10px
@@ -63,7 +63,7 @@ body
 .home-image-mask
   flex: 1
   text-align: center
-  background-color: $heaven-blue
+  background-color: $grass-green
   display: flex
   flex-direction: column
   align-items: center
@@ -95,7 +95,7 @@ body
   object-fit: cover;
 
 .home-section-header
-  color: $heaven-blue !important
+  color: rgb(108,176,101) !important
 
 .news-container
   display: flex !important
@@ -130,4 +130,9 @@ body
   background-repeat: no-repeat;
   background-size: cover;
 
-@import "~bulma"
+.ngb-image
+  max-height: 140px
+  min-width: 140px
+  margin: 10px
+
+@import "~bulma";
