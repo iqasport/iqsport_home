@@ -1,11 +1,13 @@
 import React from 'react'
 import Carousel from 'nuka-carousel'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 const VolunteerCarousel = () => {
   const renderImage = ({ name, imageSrc }) => (
     <div key={name} className="iqa-image">
-      <img src={imageSrc} alt={name} />
+      <Link to="/volunteer">
+        <img src={imageSrc} alt={name} />
+      </Link>
     </div>
   )
 

@@ -27,7 +27,13 @@ const Index = ({ data }) => {
 
   const renderHomeImage = () => {
     if (!homeImages) return null
-    return <div key={homeImages[0].id} style={{ backgroundImage: `url(${homeImages[0].link})`}} className="home-image" />
+    return (
+      <div
+        key={homeImages[0].id}
+        style={{ backgroundImage: `url(${homeImages[0].link})`}}
+        className="home-image"
+      />
+    )
   }
 
   return (

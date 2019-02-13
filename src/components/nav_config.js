@@ -21,11 +21,7 @@ const NAV_CONFIG = [
       },
       {
         title: 'Volunteers',
-        slug: '/volunteers'
-      },
-      {
-        title: 'Partners',
-        slug: '/partners'
+        slug: '/volunteer'
       }
     ]
   },
