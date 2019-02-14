@@ -22,7 +22,7 @@ const renderNavDropdown = ({ slug, title, dropdownItems }) => (
     <Link className="navbar-link is-arrowless" to={slug} key={uniqueSlug(slug)}>
       {title}
     </Link>
-    <div className="navbar-dropdown is-right">
+    <div className="navbar-dropdown is-boxed is-right">
       {dropdownItems.map(renderNavLink)}
     </div>
   </div>

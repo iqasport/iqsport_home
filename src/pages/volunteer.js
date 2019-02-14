@@ -38,7 +38,8 @@ const Volunteer = ({ data }) => {
   return (
     <Layout>
       <div className="container">
-        <section className="section">
+        <section className="section has-background-white">
+          <h1 className="title is-size-1 home-section-header">Our Volunteers</h1>
           <div className="columns is-multiline">
             {transformedData.map(renderVolunteer)}
           </div>
