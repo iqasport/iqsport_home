@@ -3,19 +3,21 @@ import Carousel from 'nuka-carousel'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 const VolunteerCarousel = () => {
-  const renderImage = ({ name, imageSrc }) => (
-    <div key={name} className="iqa-image">
-      <Link to="/volunteer">
-        <img src={imageSrc} alt={name} />
-      </Link>
-    </div>
-  )
+  const renderImage = ({ name, imageSrc }) => {
+    if (!imageSrc) return null
+
+    return (
+      <div key={name} className="iqa-image">
+        <Link to="/volunteer">
+          <img src={imageSrc} alt={name} />
+        </Link>
+      </div>
+    )
+  }
 
   const renderCarousel = (data) => {
     const transformedData = data.allWordpressPost && data.allWordpressPost.edges.map(({ node }) => {
-      const imageSrc = node.featured_media.localFile
-        ? node.featured_media.localFile.childImageSharp.fluid.src
-        : '../img/products-grid1.jpg'
+      const imageSrc = node.featured_media.localFile && node.featured_media.localFile.childImageSharp.fluid.src
 
       return {
         name: node.title,

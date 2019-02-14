@@ -3,8 +3,12 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 
 const LatestNews = () => {
   const renderNewsItem = (newsItem) => {
+    /* eslint-disable */
     const { title, slug, excerpt, featured_media } = newsItem.node
-    const imageSrc = featured_media ? featured_media.localFile.childImageSharp.fluid.src : '../img/products-grid1.jpg'
+    const imageSrc = featured_media
+      ? featured_media.localFile.childImageSharp.fluid.src
+      : '../img/logo_long_green_negative.jpg'
+    /* eslint-enable */
 
     return (
       <div key={slug} className="tile is-parent">

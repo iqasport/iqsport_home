@@ -42,9 +42,8 @@ const Index = ({ data }) => {
         <div className="home-image-container">
           {renderHomeImage()}
           <div className="home-image-mask">
-            <h1>International Quidditch Association</h1>
-            <Link className="button is-dark is-large is-fullwidth is-outlined" to="/what-is-quidditch">
-              {"Let's Play!"}
+            <Link to="/what-is-quidditch">
+              <img src="../img/logo_short_white.png" alt="International Quidditch Association" />
             </Link>
           </div>
         </div>

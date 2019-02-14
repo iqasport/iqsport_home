@@ -7,8 +7,8 @@ import Layout from '../components/Layout'
 const BlogPostTemplate = (props) => {
   const { content, categories, tags, title, date, author } = props
   return (
-    <section className="section">
-      <div className="container content">
+    <div className="container content">
+      <section className="section has-background-white">
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -51,8 +51,8 @@ const BlogPostTemplate = (props) => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
 

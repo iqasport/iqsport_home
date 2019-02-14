@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { uniqueId } from 'lodash'
 import autoBind from 'react-autobind'
 
-import logo from '../img/logo.svg'
 import NAV_CONFIG from './nav_config'
 
 const uniqueSlug = (slug) => uniqueId(`${slug}_`)
@@ -58,10 +57,14 @@ class Navbar extends Component {
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
               <figure className="image">
-                <img src={logo} alt="International Quidditch Association" style={{ width: '88px' }} />
+                <img
+                  src="../img/logo_long_green.png"
+                  alt="International Quidditch Association"
+                  style={{ width: '180px', maxHeight: 'none' }}
+                />
               </figure>
             </Link>
-  
+
             <button
               type="button"
               className={`navbar-burger burger ${activeClassName}`}
