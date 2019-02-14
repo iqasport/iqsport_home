@@ -101,7 +101,7 @@ const NAV_CONFIG = [
       },
       {
         title: 'Media Inquires',
-        slug: '/media-inquires'
+        slug: '/media-inquiries'
       },
       {
         title: 'Partnership Inquires',
