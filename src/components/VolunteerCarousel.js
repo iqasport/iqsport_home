@@ -12,12 +12,16 @@ const VolunteerCarousel = () => {
   )
 
   const renderCarousel = (data) => {
-    const transformedData = data.allWordpressPost && data.allWordpressPost.edges.map(({ node }) => (
-      {
+    const transformedData = data.allWordpressPost && data.allWordpressPost.edges.map(({ node }) => {
+      const imageSrc = node.featured_media.localFile
+        ? node.featured_media.localFile.childImageSharp.fluid.src
+        : '../img/products-grid1.jpg'
+
+      return {
         name: node.title,
-        imageSrc: node.featured_media.localFile.childImageSharp.fluid.src
+        imageSrc
       }
-    ))
+    })
 
     return (
       <div className="container volunteer-carousel">
@@ -49,16 +53,8 @@ const VolunteerCarousel = () => {
               featured_media {
                 localFile {
                   childImageSharp {
-                    fluid {
-                      base64
-                      aspectRatio
+                    fluid(maxWidth: 250) {
                       src
-                      srcSet
-                      srcWebp
-                      srcSetWebp
-                      sizes
-                      originalImg
-                      originalName
                     }
                   }
                 }

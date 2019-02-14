@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { paginate } = require('gatsby-awesome-pagination')
 
 const getOnlyPublished = edges =>
   _.filter(edges, ({ node }) => node.status === 'publish')
@@ -84,23 +83,24 @@ exports.createPages = ({ actions, graphql }) => {
       // Iterate over the array of posts
       _.each(posts, ({ node: post }) => {
         // Create the Gatsby page for this WordPress post
+        console.log(post)
         createPage({
           path: `/${post.slug}/`,
           component: postTemplate,
           context: {
             id: post.id,
-          },
+          }
         })
       })
 
       // Create a paginated blog, e.g., /, /page/2, /page/3
-      paginate({
-        createPage,
-        items: posts,
-        itemsPerPage: 10,
-        pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/` : `/page`),
-        component: postTemplate,
-      })
+      // paginate({
+      //   createPage,
+      //   items: posts,
+      //   itemsPerPage: 10,
+      //   pathPrefix: 'news',
+      //   component: postIndex,
+      // })
     })
     .then(() => {
       return graphql(`
