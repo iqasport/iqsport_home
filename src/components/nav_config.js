@@ -1,7 +1,7 @@
 const NAV_CONFIG = [
   {
     title: 'About',
-    slug: '/about',
+    slug: '/history',
     dropdownItems: [
       {
         title: 'What is quidditch?',

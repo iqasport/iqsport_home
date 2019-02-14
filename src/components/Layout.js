@@ -30,33 +30,35 @@ const Layout = ({ children }) => (
     <Navbar />
     <div className="main-container">{children}</div>
     <footer className="footer">
-      <div className="columns">
-        <div className="column is-one-third is-flex" style={{ alignItems: 'center' }}>
-          <img
-            className="image is-128x128"
-            src="../img/logo_short_monochrome_white.png"
-            alt="International Qudditch Association logo"
-          />
-          <p className="is-size-7 has-text-white-bis has-text-left">{disclaimerText}</p>
-        </div>
-        <div className="column is-one-third is-flex" style={{ alignItems: 'center', justifyContent: 'center' }}>
-          <ul>
-            {quickLinksConfig.map((link) => (
-              <li key={link.slug}><Link className="has-text-white-ter" to={link.slug}>{link.label}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div className="column is-one-third">
-          <h3 className="title is-size-3 has-text-white-bis">Follow Us</h3>
-          <ul className="social-links">
-            {socialLinks.map((link) => (
-              <li key={link.link}>
-                <a href={link.link} target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon icon={link.icon} className="has-text-white-ter" size="2x" />
-                </a>
-              </li>
-            ))}
-          </ul>
+      <div className="container">
+        <div className="columns">
+          <div className="column is-one-third is-flex" style={{ alignItems: 'center' }}>
+            <img
+              className="image is-128x128"
+              src="../img/logo_short_monochrome_white.png"
+              alt="International Qudditch Association logo"
+            />
+            <p className="is-size-7 has-text-white-bis has-text-left">{disclaimerText}</p>
+          </div>
+          <div className="column is-one-third is-flex" style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <ul>
+              {quickLinksConfig.map((link) => (
+                <li key={link.slug}><Link className="has-text-white-ter" to={link.slug}>{link.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div className="column is-one-third">
+            <h3 className="title is-size-3 has-text-white-bis">Follow Us</h3>
+            <ul className="social-links">
+              {socialLinks.map((link) => (
+                <li key={link.link}>
+                  <a href={link.link} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={link.icon} className="has-text-white-ter" size="2x" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
