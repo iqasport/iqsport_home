@@ -31,7 +31,7 @@ const Index = ({ data }) => {
       <div
         key={homeImages[0].id}
         style={{ backgroundImage: `url(${homeImages[0].link})`}}
-        className="home-image"
+        className="home-image is-hidden-mobile"
       />
     )
   }
