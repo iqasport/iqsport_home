@@ -12,7 +12,7 @@ const quickLinksConfig = [
   { slug: '/rules', label: 'Rulebook' },
   { slug: '/guides', label: 'Guidebooks' },
   { slug: '/contact', label: 'Contact Us' },
-  { slug: '/volunteer', label: 'Volunteer With Us' }
+  { slug: '/volunteer-with-us', label: 'Volunteer With Us' }
 ]
 
 const socialLinks = [
