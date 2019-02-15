@@ -49,7 +49,7 @@ const NAV_CONFIG = [
   },
   {
     title: 'Play',
-    slug: '/play',
+    slug: '/national-governing-bodies',
     dropdownItems: [
       {
         title: 'National Governing Bodies',
