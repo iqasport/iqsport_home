@@ -84,10 +84,6 @@ const NAV_CONFIG = [
       {
         title: 'Internal Documents',
         slug: '/documents'
-      },
-      {
-        title: 'Policies',
-        slug: '/policies'
       }
     ]
   },

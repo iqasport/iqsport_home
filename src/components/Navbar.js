@@ -7,15 +7,25 @@ import NAV_CONFIG from './nav_config'
 
 const uniqueSlug = (slug) => uniqueId(`${slug}_`)
 
-const renderNavLink = ({ slug, title }) => (
-  <Link
-    className="navbar-item"
-    to={slug}
-    key={uniqueSlug(slug)}
-  >
-    {title}
-  </Link>
-)
+const renderNavLink = ({ slug, title }) => {
+  if (slug === '/referees') {
+    return (
+      <a className="navbar-item" href="https://www.iqareferees.org" target="_blank" rel="noopener noreferrer">
+        {title}
+      </a>
+    )
+  }
+
+  return (
+    <Link
+      className="navbar-item"
+      to={slug}
+      key={uniqueSlug(slug)}
+    >
+      {title}
+    </Link>
+  )
+}
 
 const renderNavDropdown = ({ slug, title, dropdownItems }) => (
   <div key={slug} className="navbar-item has-dropdown is-hoverable">

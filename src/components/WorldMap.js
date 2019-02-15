@@ -101,7 +101,7 @@ class WorldMap extends Component {
   renderNGB = ({ name, imageSrc, url }) => (
     <div key={name} className="ngb-image column">
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <img src={imageSrc} alt={name} />
+        <img src={imageSrc} alt={name} style={{ height: '140px' }} />
       </a>
     </div>
   )
