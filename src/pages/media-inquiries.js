@@ -4,7 +4,6 @@ import ContactForm from '../components/ContactForm'
 
 const emailConfig = [
   { label: 'Communications Department', email: 'communications@iqasport.org' },
-  { label: 'Media Relations', email: 'media@iqasport.org' },
   { label: 'Events Department', email: 'events@iqasport.org' }
 ]
 

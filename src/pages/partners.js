@@ -3,9 +3,8 @@ import Layout from '../components/Layout'
 import ContactForm from '../components/ContactForm'
 
 const emailConfig = [
-  { label: 'Business Development', email: 'business.development@iqasport.org' },
+  { label: 'Business Development', email: 'info@iqasport.org' },
   { label: 'Communications Department', email: 'communications@iqasport.org' },
-  { label: 'Media Relations', email: 'media@iqasport.org' },
   { label: 'Events Department', email: 'events@iqasport.org' }
 ]
 

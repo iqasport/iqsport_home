@@ -31,14 +31,14 @@ const Index = ({ data }) => {
       <div
         key={homeImages[0].id}
         style={{ backgroundImage: `url(${homeImages[0].link})`}}
-        className="home-image is-hidden-mobile"
+        className="home-image"
       />
     )
   }
 
   return (
     <Layout>
-      <section className="section section--gradient" style={{ padding: '0' }}>
+      <section className="section section--gradient is-hidden-mobile" style={{ padding: '0' }}>
         <div className="home-image-container">
           {renderHomeImage()}
           <div className="home-image-mask">
