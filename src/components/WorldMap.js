@@ -81,7 +81,7 @@ class WorldMap extends Component {
     const { properties: { NAME, NAME_LONG, FORMAL_EN } } = geography
     const ngb = findNGB({ NAME, NAME_LONG, FORMAL_EN })
 
-    const defaultFill = ngb ? '#DFAB19' : '#ECEFF1'
+    const defaultFill = ngb ? '#F6AF95' : '#ECEFF1'
 
     return (
       <Geography
