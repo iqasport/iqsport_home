@@ -10,7 +10,7 @@ const NationalGoverningBodies = () => (
         <p>
         Quidditch is played in many countries around the world. To learn more about quidditch in your (or another) country, check out the links below.
         </p>
-        <WorldMap />
+        <WorldMap isWithTabs />
       </section>
     </div>
   </Layout>
