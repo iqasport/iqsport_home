@@ -25,11 +25,11 @@ const renderNGBInfo = (ngb) => {
       <div>
         <div>
           <img src="${ngb.imageSrc}" alt="${ngb.name}" />
-          <a href="${ngb.url}" target="_blank">${ngb.name}</a>
+          <p>${ngb.name}</p>
         </div>
         <div>
           <img src="${cat.imageSrc}" alt="${cat.name}" />
-          <a href="${cat.url}" target="_blank">${cat.name}</a>
+          <p>${cat.name}</p>
         </div>
       </div>
     `
@@ -46,6 +46,10 @@ const renderNGBInfo = (ngb) => {
 class WorldMap extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isSpainModalShown: false
+    }
+
     autobind(this)
   }
 
@@ -62,7 +66,15 @@ class WorldMap extends Component {
     if (!ngb) return null
     if (!ngb.url) return null
 
-    window.open(ngb.url, '_blank')
+    if (ngb.name === 'Spain') {
+      this.setState({isSpainModalShown: true})
+    } else {
+      window.open(ngb.url, '_blank')
+    }
+  }
+
+  handleSpainModalClose = () => {
+    this.setState({isSpainModalShown: false})
   }
 
   renderGeography = (projection) => (geography, index) => {
@@ -70,13 +82,11 @@ class WorldMap extends Component {
     const ngb = findNGB({ NAME, NAME_LONG, FORMAL_EN })
 
     const defaultFill = ngb ? '#DFAB19' : '#ECEFF1'
-    const tooltipEffect = ngb && ngb.name === 'Spain' ? 'solid' : 'float'
 
     return (
       <Geography
         data-tip={renderNGBInfo(ngb)}
         data-html
-        data-effect={tooltipEffect}
         key={`${geography.id}-${index}`}
         geography={geography}
         projection={projection}
@@ -136,11 +146,42 @@ class WorldMap extends Component {
     </div>
   )
 
+  renderSpainModal = () => {
+    const { isSpainModalShown } = this.state
+
+    const className = isSpainModalShown ? 'modal is-active' : 'modal'
+
+    const esp = findNGB({ name: 'Spain' })
+    const cat = findNGB({ name: 'Catalonia' })
+
+    return (
+      <div className={className}>
+        <div className='modal-background' onClick={this.handleSpainModalClose} />
+        <div className='modal-content box columns'>
+          <a className='column card has-text-centered' href={esp.url} target="_blank" rel="noopener noreferrer">
+            <div className='card-image'>
+              <img src={esp.imageSrc} alt={esp.name} />
+            </div>
+            <div className='card-content has-text-link'>{esp.name}</div>
+          </a>
+          <a className='column card has-text-centered' href={cat.url} target="_blank" rel="noopener noreferrer">
+            <div className='card-image'>
+              <img src={cat.imageSrc} alt={cat.name} />
+            </div>
+            <div className='card-content has-text-link'>{cat.name}</div>
+          </a>
+        </div>
+        <button className='modal-close is-large' aria-label='close' onClick={this.handleSpainModalClose} />
+      </div>
+    )
+  }
+
   render () {
     return (
       <Fragment>
         {this.renderMap()}
         {this.renderNGBList()}
+        {this.renderSpainModal()}
       </Fragment>
     )
   }
