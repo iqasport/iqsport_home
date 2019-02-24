@@ -10,7 +10,13 @@ const uniqueSlug = (slug) => uniqueId(`${slug}_`)
 const renderNavLink = ({ slug, title }) => {
   if (slug === '/referees') {
     return (
-      <a className="navbar-item" href="https://www.iqareferees.org" target="_blank" rel="noopener noreferrer">
+      <a
+        key={slug}
+        className="navbar-item"
+        href="https://www.iqareferees.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {title}
       </a>
     )
@@ -32,7 +38,7 @@ const renderNavDropdown = ({ slug, title, dropdownItems }) => (
     <Link className="navbar-link is-arrowless" to={slug} key={uniqueSlug(slug)}>
       {title}
     </Link>
-    <div className="navbar-dropdown is-boxed is-right">
+    <div className="navbar-dropdown is-boxed">
       {dropdownItems.map(renderNavLink)}
     </div>
   </div>
@@ -46,21 +52,21 @@ const renderNavConfig = (config) => {
 class Navbar extends Component {
   constructor(props) {
     super(props)
+    autoBind(this)
+
     this.state = {
       isMenuActive: false
     }
-
-    autoBind(this)
   }
 
-  handleBurgerClick () {
+  handleBurgerClick = () => {
     this.setState(prevState => ({ isMenuActive: !prevState.isMenuActive }))
   }
 
   render() {
     const { isMenuActive } = this.state
     const activeClassName = isMenuActive ? 'is-active' : ''
-
+    /* eslint-disable */
     return (
       <nav className="navbar is-fixed-top">
         <div className="container">
@@ -75,8 +81,7 @@ class Navbar extends Component {
               </figure>
             </Link>
 
-            <button
-              type="button"
+            <a
               className={`navbar-burger burger ${activeClassName}`}
               aria-label="menu"
               aria-expanded="false"
@@ -85,7 +90,7 @@ class Navbar extends Component {
               <span aria-hidden="true" />
               <span aria-hidden="true" />
               <span aria-hidden="true" />
-            </button>
+            </a>
           </div>
           <div className={`navbar-menu ${activeClassName}`}>
             <div className="navbar-end">
@@ -95,6 +100,7 @@ class Navbar extends Component {
         </div>
       </nav>
     )
+     /* eslint-enable */
   }
 }
 

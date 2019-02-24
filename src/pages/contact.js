@@ -11,7 +11,9 @@ const emailConfig = [
   { label: 'Information Technology Department', email: 'tech@iqasport.org' },
   { label: 'Events Department', email: 'events@iqasport.org' },
   { label: 'Gameplay Department', email: 'gameplay@iqasport.org' },
-  { label: 'Finance Department', email: 'finance@iqasport.org' }
+  { label: 'Finance Department', email: 'finance@iqasport.org' },
+  { label: 'Marketing Department', email: 'marketing@iqasport.org' },
+  { label: 'Public Relations', email: 'public.relations@iqasport.org' }
 ]
 
 const Contact = () => {

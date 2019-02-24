@@ -37,9 +37,13 @@ class VolunteerWithUs extends Component {
   handleClose = () => this.setState({ isModalActive: false, activePostId: null })
 
   renderPostings = ({ title, id }) => (
-    <li>
-      <button onClick={this.handlePostingClick(id)} type="button">
-        <h3>{title}</h3>
+    <li style={{ listStyle: 'none' }}>
+      <button
+        className="button is-large is-info is-outlined"
+        onClick={this.handlePostingClick(id)}
+        type="button"
+      >
+        {title}
       </button>
     </li>
   )
@@ -76,8 +80,14 @@ class VolunteerWithUs extends Component {
               <div className="content" dangerouslySetInnerHTML={{ __html: activeContent }} />
             </section>
             <footer className="modal-card-foot">
-              <button className="button is-success">Save changes</button>
-              <button type="button" onClick={this.handleClose} className="button">Cancel</button>
+              <a
+                href={`mailto:hiring@iqasport.org?Subject=${activeTitle} Application`}
+                target="_top"
+                className="button is-success"
+              >
+                Apply
+              </a>
+              <button type="button" onClick={this.handleClose} className="button">Close</button>
             </footer>
           </div>
         </div>

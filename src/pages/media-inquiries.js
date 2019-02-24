@@ -4,7 +4,9 @@ import ContactForm from '../components/ContactForm'
 
 const emailConfig = [
   { label: 'Communications Department', email: 'communications@iqasport.org' },
-  { label: 'Events Department', email: 'events@iqasport.org' }
+  { label: 'Events Department', email: 'events@iqasport.org' },
+  { label: 'Marketing Department', email: 'marketing@iqasport.org' },
+  { label: 'Public Relations', email: 'public.relations@iqasport.org' }
 ]
 
 const MediaInquiries = () => {
@@ -25,7 +27,7 @@ const MediaInquiries = () => {
           <h1 className="title is-size-1 home-section-header">Media Inquiries</h1>
           <div className="content">
             <p>
-              Are you a media representative looking to inquire about a story or press release? Please reach out using the form below. If you have a question for a specific department or team feel free to email us below.
+              Are you a media representative looking to inquire about a story or press release? Please reach out using the form below. If you have a question for a specific department or team feel free to email us via the addresses provided below.
             </p>
             <ul>
               {emailConfig.map(renderEmail)}
