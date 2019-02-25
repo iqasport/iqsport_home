@@ -8,3 +8,7 @@
 [[redirects]]
   from = "/news/what-s-new/*"
   to = "/news"
+
+[[redirects]]
+  from = "/images/documents/rulebooks/*"
+  to = "/rulebook"
