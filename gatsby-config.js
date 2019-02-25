@@ -14,7 +14,7 @@ module.exports = {
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
-        protocol: 'http',
+        protocol: 'https',
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: false,
         auth: {},
@@ -38,7 +38,7 @@ module.exports = {
         short_name: 'IQASport',
         start_url: '/',
         background_color: `#f4efef`,
-        theme_color: `#69acdf`,
+        theme_color: `#72ba6b`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
