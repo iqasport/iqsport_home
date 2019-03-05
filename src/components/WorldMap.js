@@ -47,6 +47,8 @@ class WorldMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isMapClicked: false,
+      isListClicked: false,
       isSpainModalShown: false
     }
 
@@ -75,6 +77,14 @@ class WorldMap extends Component {
 
   handleSpainModalClose = () => {
     this.setState({isSpainModalShown: false})
+  }
+
+  handleMapClick = () => {
+    this.setState({isMapClicked: true, isListClicked: false});
+  }
+
+  handleListClick = () => {
+    this.setState({isMapClicked: false, isListClicked: true});
   }
 
   renderGeography = (projection) => (geography, index) => {
@@ -116,35 +126,71 @@ class WorldMap extends Component {
     </div>
   )
 
-  renderMap = () => (
-    <div className="is-hidden-touch">
-      <ComposableMap
-        projectionConfig={{
-          scale: 205,
-          rotation: [-11,0,0],
-        }}
-        width={980}
-        height={551}
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-      >
-        <ZoomableGroup center={[0,20]} disablePanning>
-          <Geographies geography={mapPath}>
-            {(geographies, projection) => geographies.map(this.renderGeography(projection))}
-          </Geographies>
-        </ZoomableGroup>
-      </ComposableMap>
-      <ReactTooltip />
-    </div>
-  )
+  renderTabs = () => {
+    const { isWithTabs } = this.props
+    const { isMapClicked, isListClicked } = this.state;
 
-  renderNGBList = () => (
-    <div className="is-hidden-desktop columns is-multiline">
-      {NGB_CONFIG.map(this.renderNGB)}
-    </div>
-  )
+    return isWithTabs && (
+        <div className="is-hidden-mobile tabs is-centered">
+          <ul>
+            <li className={`is-hidden-touch ${isListClicked ? '' : 'is-active'}`}>
+              <a onClick={this.handleMapClick}>World Map</a>
+            </li>
+            <li className={`is-hidden-touch ${isListClicked ? 'is-active' : ''}`}>
+              <a onClick={this.handleListClick}>List</a>
+            </li>
+            <li className={`is-hidden-desktop ${isMapClicked ? '' : 'is-active'}`}>
+              <a onClick={this.handleListClick}>List</a>
+            </li>
+            <li className={`is-hidden-desktop ${isMapClicked ? 'is-active' : ''}`}>
+              <a onClick={this.handleMapClick}>World Map</a>
+            </li>
+          </ul>
+        </div>
+    );
+  }
+
+  renderMap = () => {
+    const { isMapClicked, isListClicked } = this.state;
+
+    const className = isListClicked ? 'is-hidden' : isMapClicked ? '' : 'is-hidden-touch'
+
+    return (
+      <div className={className}>
+        <ComposableMap
+            projectionConfig={{
+              scale: 205,
+              rotation: [-11, 0, 0],
+            }}
+            width={980}
+            height={551}
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+        >
+          <ZoomableGroup center={[0, 20]} disablePanning>
+            <Geographies geography={mapPath}>
+              {(geographies, projection) => geographies.map(this.renderGeography(projection))}
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
+        <ReactTooltip/>
+      </div>
+    )
+  }
+
+  renderNGBList = () => {
+    const { isMapClicked, isListClicked } = this.state;
+
+    const className = isMapClicked ? 'is-hidden' : isListClicked ? 'columns is-multiline' : 'is-hidden-desktop columns is-multiline';
+
+    return (
+      <div className={className}>
+        {NGB_CONFIG.map(this.renderNGB)}
+      </div>
+    )
+  }
 
   renderSpainModal = () => {
     const { isSpainModalShown } = this.state
@@ -179,6 +225,7 @@ class WorldMap extends Component {
   render () {
     return (
       <Fragment>
+        {this.renderTabs()}
         {this.renderMap()}
         {this.renderNGBList()}
         {this.renderSpainModal()}
