@@ -1,28 +1,18 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import NewsItem from '../components/NewsItem'
 
 const News = ({ data }) => {
   const renderNewsItem = (newsItem) => {
     /* eslint-disable */
     const { title, slug, excerpt, featured_media } = newsItem.node
-    const imageSrc = featured_media ?
-      featured_media.localFile.childImageSharp.fluid.src
+    const imageSrc = featured_media && featured_media.localFile
+      ? featured_media.localFile.childImageSharp.fluid.src
       : '../img/logo_long_green_negative.jpg'
     /* eslint-enable */
 
-    return (
-      <div key={slug} className="tile is-parent">
-        <div className="tile is-child box is-radiusless is-paddingless has-background-grey-lighter news-container">
-          <div className="news-image is-hidden-mobile" style={{ backgroundImage: `url(${imageSrc})` }} />
-          <div className="news-content">
-            <h4 className="title has-text-weight-bold is-size-4">{title}</h4>
-            <span dangerouslySetInnerHTML={{ __html: excerpt }} />
-            <Link to={slug}>Read More...</Link>
-          </div>
-        </div>
-      </div>
-    )
+    return <NewsItem title={title} slug={slug} excerpt={excerpt} imageSrc={imageSrc} />
   }
 
   const newsItems = data && data.allWordpressPost.edges
