@@ -34,7 +34,18 @@ const News = ({ data }) => {
 export default News
 export const newsQuery = graphql`
 query News {
-  allWordpressPost(filter: { categories: { name: { eq: "News" } } }) {
+  allWordpressPost(
+    filter: {
+      categories: {
+        name: {
+          eq: "News"
+        }
+      }
+    },
+    sort: {
+      order: DESC, 
+      fields: [date],
+    }) {
     edges {
       node {
         title
