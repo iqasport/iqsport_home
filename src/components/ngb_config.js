@@ -123,6 +123,13 @@ const NGB_CONFIG = [
     url: 'http://www.italiaquidditch.com/index.php/it'
   },
   {
+    name: 'Japan',
+    lat: 36.204823,
+    long: 138.252930,
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2019/05/jqaicon.jpg',
+    url: 'https://quidditchjapan.org'
+  },
+  {
     name: 'Malaysia',
     lat: 4.210484,
     long: 101.975769,

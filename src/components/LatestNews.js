@@ -28,7 +28,19 @@ const LatestNews = () => {
     <StaticQuery
       query={graphql`
       query LatestNews {
-        allWordpressPost(filter: { categories: { name: { eq: "News" } } }, limit: 3) {
+        allWordpressPost(
+          filter: {
+            categories: {
+              name: {
+                eq: "News"
+              }
+            }
+          },
+          sort: {
+            order: DESC, 
+            fields: [date],
+          },
+          limit: 3) {
           edges {
             node {
               title
