@@ -67,8 +67,8 @@ const NGB_CONFIG = [
     name: 'Denmark',
     lat: 56.263920,
     long: 9.501785,
-    imageSrc: 'https://iqasport.org/wp-content/uploads/2019/02/22448389_368670266900875_7256094793108332350_n.jpg',
-    url: 'https://www.facebook.com/Quidditchdenmark/'
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2019/07/dqf_logo-e1562439191515.png',
+    url: 'https://www.facebook.com/danskquidditchforbund/'
   },
   {
     name: 'Finland',
@@ -168,7 +168,7 @@ const NGB_CONFIG = [
     name: 'Peru',
     lat: -9.189967,
     long: -75.015152,
-    imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Peru_140.png',
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2019/07/LOGO-FDPQ-e1562439412378.png',
     url: 'https://www.facebook.com/QuidditchPeru'
   },
   {
