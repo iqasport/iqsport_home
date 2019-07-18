@@ -45,7 +45,7 @@ const NGB_CONFIG = [
     name: 'Catalonia',
     lat: 41.692150,
     long: 1.746010,
-    imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Catalonia_140.png',
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2019/07/AQC_spf-e1563474176887.jpg ',
     url: 'https://quidditchcatalunya.cat/'
   },
   {
