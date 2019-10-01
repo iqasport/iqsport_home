@@ -4,7 +4,7 @@ const NGB_CONFIG = [
     lat: -38.416096,
     long: -63.616673,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Argentina_140.png',
-    url: 'https://www.facebook.com/asociaciondequidditch.arg/'
+    url: 'https://www.facebook.com/AQArg.Quidditch/'
   },
   {
     name: 'Australia',
@@ -18,7 +18,7 @@ const NGB_CONFIG = [
     lat: 47.516232,
     long: 14.550072,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Austria_140.png',
-    url: 'https://quidditch.at/en/'
+    url: 'https://quidditch.at/'
   },
   {
     name: 'Belgium',
@@ -191,7 +191,7 @@ const NGB_CONFIG = [
     lat: 35.907757,
     long: 127.766922,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Korea_140.png',
-    urls: 'https://www.facebook.com/quidditchkorea/'
+    url: 'https://www.facebook.com/quidditchkorea/'
   },
   {
     name: 'Serbia',
@@ -266,7 +266,7 @@ const NGB_CONFIG = [
   {
     name: 'Vietnam',
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Vietnam_140.png',
-    url: ''
+    url: 'https://charity.quidditchvn.org/'
   }
 ]
 
