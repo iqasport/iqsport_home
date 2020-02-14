@@ -11,7 +11,7 @@ const NGB_CONFIG = [
     lat: -25.274399,
     long: 133.775131,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Australia_140.png',
-    url: 'http://www.quidditch.org.au/'
+    url: 'http://www.quidditchaustralia.org'
   },
   {
     name: 'Austria',
@@ -219,7 +219,7 @@ const NGB_CONFIG = [
     lat: 40.463669,
     long: -3.749220,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Spain_140.png',
-    url: 'https://www.facebook.com/AsociacionQuidditchEspana/'
+    url: 'https://www.aqe.es/'
   },
   {
     name: 'Sweden',
