@@ -30,6 +30,10 @@ const NAV_CONFIG = [
     slug: '/events',
     dropdownItems: [
       {
+        title: 'COVID-19',
+        slug: '/covid-19'
+      },
+      {
         title: 'World Cup',
         slug: '/world-cup'
       },

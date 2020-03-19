@@ -169,7 +169,7 @@ const NGB_CONFIG = [
     lat: -9.189967,
     long: -75.015152,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2019/07/LOGO-FDPQ-e1562439412378.png',
-    url: 'https://www.facebook.com/QuidditchPeru'
+    url: 'http://quidditchperu.com/'
   },
   {
     name: 'Poland',
@@ -205,7 +205,7 @@ const NGB_CONFIG = [
     lat: 48.669025,
     long: 19.699024,
     imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Slovakia_140.png',
-    url: 'https://www.facebook.com/slovakquidditch/'
+    url: 'https://metlobal.sk/'
   },
   {
     name: 'Slovenia',

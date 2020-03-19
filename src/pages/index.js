@@ -38,6 +38,13 @@ const Index = ({ data }) => {
 
   return (
     <Layout>
+      <div className="message is-danger is-medium">
+        <div className="message-body has-text-centered">
+          {'COVID-19 UPDATE: Click '}
+          <Link to="/covid-19">here</Link>
+          {' to read more'}
+        </div>
+      </div>
       <section className="section section--gradient is-hidden-mobile" style={{ padding: '0' }}>
         <div className="home-image-container">
           {renderHomeImage()}
