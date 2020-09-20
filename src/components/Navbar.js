@@ -13,7 +13,7 @@ const renderNavLink = ({ slug, title }) => {
       <a
         key={slug}
         className="navbar-item"
-        href="https://www.iqareferees.org"
+        href="https://manage.iqasport.com"
         target="_blank"
         rel="noopener noreferrer"
       >
