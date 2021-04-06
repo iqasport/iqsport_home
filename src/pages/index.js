@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 import Layout from '../components/Layout'
 import WorldMap from '../components/WorldMap'
@@ -12,25 +12,30 @@ const quickLinksConfig = [
   { slug: '/rules', label: 'Rulebook' },
   { slug: '/guides', label: 'Guidebooks' },
   { slug: '/contact', label: 'Contact Us' },
-  { slug: '/volunteer-with-us', label: 'Volunteer With Us' }
 ]
 
 const socialLinks = [
-  { link: 'https://www.facebook.com/InternationalQuidditchAssociation/', icon: faFacebook },
-  { link: 'https://twitter.com/IQAsport', icon: faTwitter },
-  { link: 'https://www.youtube.com/channel/UC-oBgQgyuFRkvYEgG1unTUw/videos', icon: faYoutube },
-  { link: 'https://www.instagram.com/iqaquidditch/', icon: faInstagram },
+  {
+    link: 'https://www.facebook.com/InternationalQuidditchAssociation/',
+    icon: faFacebook,
+  },
+  {
+    link: 'https://www.youtube.com/channel/UC-oBgQgyuFRkvYEgG1unTUw/videos',
+    icon: faYoutube,
+  },
 ]
 
 const Index = ({ data }) => {
-  const homeImages = data.allWordpressWpMedia && data.allWordpressWpMedia.edges.map(edge => edge.node)
+  const homeImages =
+    data.allWordpressWpMedia &&
+    data.allWordpressWpMedia.edges.map(edge => edge.node)
 
   const renderHomeImage = () => {
     if (!homeImages) return null
     return (
       <div
         key={homeImages[0].id}
-        style={{ backgroundImage: `url(${homeImages[0].link})`}}
+        style={{ backgroundImage: `url(${homeImages[0].link})` }}
         className="home-image"
       />
     )
@@ -45,12 +50,18 @@ const Index = ({ data }) => {
           {' to read more'}
         </div>
       </div>
-      <section className="section section--gradient is-hidden-mobile" style={{ padding: '0' }}>
+      <section
+        className="section section--gradient is-hidden-mobile"
+        style={{ padding: '0' }}
+      >
         <div className="home-image-container">
           {renderHomeImage()}
           <div className="home-image-mask">
             <Link to="/what-is-quidditch">
-              <img src="../img/logo_short_white.png" alt="International Quidditch Association" />
+              <img
+                src="../img/logo_short_white.png"
+                alt="International Quidditch Association"
+              />
             </Link>
           </div>
         </div>
@@ -69,7 +80,9 @@ const Index = ({ data }) => {
             <div className="tile is-parent">
               <section className="section section-gradient">
                 <div className="tile is-child">
-                  <h3 className="title is-3 home-section-header">Meet The IQA</h3>
+                  <h3 className="title is-3 home-section-header">
+                    Meet The IQA
+                  </h3>
                   <VolunteerCarousel />
                 </div>
               </section>
@@ -77,11 +90,15 @@ const Index = ({ data }) => {
             <div className="tile is-parent">
               <section className="section section-gradient">
                 <div className="tile is-child">
-                  <h3 className="title is-3 home-section-header">Quick Links</h3>
+                  <h3 className="title is-3 home-section-header">
+                    Quick Links
+                  </h3>
                   <div>
                     <ul>
-                      {quickLinksConfig.map((link) => (
-                        <li key={link.slug}><Link to={link.slug}>{link.label}</Link></li>
+                      {quickLinksConfig.map(link => (
+                        <li key={link.slug}>
+                          <Link to={link.slug}>{link.label}</Link>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -94,9 +111,13 @@ const Index = ({ data }) => {
                   <h3 className="title is-3 home-section-header">Follow Us</h3>
                   <div>
                     <ul className="social-links">
-                      {socialLinks.map((link) => (
+                      {socialLinks.map(link => (
                         <li key={link.link}>
-                          <a href={link.link} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={link.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <FontAwesomeIcon icon={link.icon} size="2x" />
                           </a>
                         </li>
@@ -109,7 +130,10 @@ const Index = ({ data }) => {
           </div>
         </div>
       </div>
-      <section className="section section-gradient is-hidden-mobile" style={{ backgroundColor: 'rgb(114,186,107)' }}>
+      <section
+        className="section section-gradient is-hidden-mobile"
+        style={{ backgroundColor: 'rgb(114,186,107)' }}
+      >
         <div className="container">
           <WorldMap />
         </div>
