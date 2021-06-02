@@ -52,8 +52,7 @@ const NGB_CONFIG = [
     name: 'Chile',
     lat: -35.675148,
     long: -71.542969,
-    imageSrc:
-    'https://iqasport.org/wp-content/uploads/2019/02/16665939_381126092244303_3555147020039766905_o-e1549986274914.png',
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2021/06/falab6.png',
     url: 'https://www.facebook.com/chilequidditch/'
   },
   {
