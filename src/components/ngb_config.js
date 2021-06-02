@@ -225,7 +225,7 @@ const NGB_CONFIG = [
     name: 'Sweden',
     lat: 60.128162,
     long: 18.643501,
-    imageSrc: 'https://iqasport.org/wp-content/uploads/2018/07/Sweden_140.png',
+    imageSrc: 'https://iqasport.org/wp-content/uploads/2021/06/SVQFLoggaGenomskinlig.png',
     url: 'https://www.facebook.com/QuidditchSverige/'
   },
   {
